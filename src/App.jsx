@@ -39,9 +39,9 @@ function App() {
         <h1 className=" text-4xl sm:text-3xl text-center text-white whitespace-nowrap">
           Password Generator
         </h1>
-        <div className="flex items-center space-x-3 sm:justify-center justify-end overflow-hidden">
+        <div className="flex flex-col sm:flex-row items-center space-x-3 justify-center  overflow-hidden">
           <input
-            className="border py-4 px-3 rounded-2xl text-2xl text-orange-500 w-full"
+            className="border py-4 sm:px-3 px-1  rounded-2xl text-2xl text-orange-500 sm:w-full w-[80%] mx-auto"
             type="text"
             placeholder="Password"
             readOnly
@@ -50,7 +50,7 @@ function App() {
           />
           <button
             type="button"
-            className="text-2xl border bg-gradient-to-br from-purple-600 to-blue-500  inline-block py-4 px-6 rounded-xl  text-white shadow-lg hover:text-[#f5f5f5] hover:bg-gradient-to-bl focus:outline-none"
+            className="my-2 mx-2 text-2xl border bg-gradient-to-br from-purple-600 to-blue-500  inline-block py-4 px-6 rounded-xl  text-white shadow-lg hover:text-[#f5f5f5] hover:bg-gradient-to-bl focus:outline-none"
             onClick={() => {
               copyPassword(), setBtnText("copied");
             }}
@@ -77,35 +77,37 @@ function App() {
               Length : {length}
             </label>
           </div>
-          <div className="flex items-center gap-x-1">
-            <input
-              type="checkbox"
-              name="number"
-              id="check"
-              defaultChecked={numAllowed}
-              onChange={() => {
-                setNumAllowed((prev) => !prev), setBtnText("copy");
-              }}
-              className="mr-2 cursor-pointer"
-            />
-            <label htmlFor="number" className=" text-white">
-              Number
-            </label>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <input
-              type="checkbox"
-              name="character"
-              id="character"
-              defaultChecked={charAllowed}
-              onChange={() => {
-                setCharAllowed((prev) => !prev), setBtnText("copy");
-              }}
-              className="mr-2 cursor-pointer"
-            />
-            <label htmlFor="character" className=" text-white">
-              Character
-            </label>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-x-1">
+              <input
+                type="checkbox"
+                name="number"
+                id="check"
+                defaultChecked={numAllowed}
+                onChange={() => {
+                  setNumAllowed((prev) => !prev), setBtnText("copy");
+                }}
+                className="mr-2 cursor-pointer"
+              />
+              <label htmlFor="number" className=" text-white">
+                Number
+              </label>
+            </div>
+            <div className="flex items-center gap-x-1">
+              <input
+                type="checkbox"
+                name="character"
+                id="character"
+                defaultChecked={charAllowed}
+                onChange={() => {
+                  setCharAllowed((prev) => !prev), setBtnText("copy");
+                }}
+                className="mr-2 cursor-pointer"
+              />
+              <label htmlFor="character" className=" text-white">
+                Character
+              </label>
+            </div>
           </div>
         </div>
       </div>
